@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+// webpack finds .js files for you (without adding the extension)
+import CommentDetail from "./CommentDetail";
+import faker from "faker";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  return (
+    <div className="ui container comments">
+      <CommentDetail 
+        avatar={faker.image.nightlife()} 
+        author="Raul" 
+        timeAgo="Today at 3:35PM" 
+        content="Great work!" />
+      <CommentDetail 
+        avatar={faker.image.people()} 
+        author="Rosario" 
+        timeAgo="Today at 7:34PM" 
+        content="Really awesome idea" />
+      <CommentDetail 
+        avatar={faker.image.city()} 
+        author="Guadalupe" 
+        timeAgo="Yesterdat at 9:54AM" 
+        content="I don't agree..." />
+    </div>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.querySelector('#root'));
