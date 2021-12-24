@@ -1,4 +1,4 @@
-const CommentDetail = props => {
+const CommentDetail = (props) => {
   console.log(props);
   return (
     <div className="comment">
